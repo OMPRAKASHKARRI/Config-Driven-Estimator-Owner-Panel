@@ -1,0 +1,13 @@
+{
+  "name": "wantace-roofing-estimator",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Config-driven roofing estimator + authenticated owner panel (Wantace SDE Intern take-home)",
+  "scripts": {
+    "install:all": "npm install --prefix server && npm install --prefix client",
+    "seed": "npm run seed --prefix server",
+    "dev:server": "npm run dev --prefix server",
+    "dev:client": "npm run dev --prefix client",
+    "build:client": "npm run build --prefix client"
+  }
+}
