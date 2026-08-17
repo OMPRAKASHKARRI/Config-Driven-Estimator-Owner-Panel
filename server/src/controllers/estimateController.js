@@ -9,9 +9,7 @@ export async function postEstimate(req, res, next) {
 
     validateContact({ name, phone, email });
 
-    // If the client tells us which config snapshot its form was rendered
-    // from, honor it (mid-flow safety - see DECISIONS.md). Otherwise fall
-    // back to whatever is current right now.
+    
     const config = config_version
       ? (await getConfigByVersion(config_version)) || (await getCurrentConfig())
       : await getCurrentConfig();
