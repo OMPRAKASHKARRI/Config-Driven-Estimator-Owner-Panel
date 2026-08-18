@@ -1,4 +1,6 @@
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "/api";
+const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL ||
+  "https://config-driven-estimator-owner-panel.onrender.com/api";
 
 async function request(path, options = {}) {
   const res = await fetch(`${API_BASE_URL}${path}`, {
@@ -10,16 +12,21 @@ async function request(path, options = {}) {
   });
 
   let body = null;
+
   try {
     body = await res.json();
   } catch {
-    // no JSON body
+    // No JSON body
   }
 
   if (!res.ok) {
-    const error = new Error((body && body.error) || `Request failed (${res.status})`);
+    const error = new Error(
+      (body && body.error) || `Request failed (${res.status})`
+    );
+
     error.details = body && body.details;
     error.status = res.status;
+
     throw error;
   }
 
@@ -52,11 +59,16 @@ export function login(username, password) {
 
 function authHeaders() {
   const token = localStorage.getItem("wantace_admin_token");
-  return token ? { Authorization: `Bearer ${token}` } : {};
+
+  return token
+    ? { Authorization: `Bearer ${token}` }
+    : {};
 }
 
 export function fetchAdminConfig() {
-  return request("/admin/config", { headers: authHeaders() });
+  return request("/admin/config", {
+    headers: authHeaders(),
+  });
 }
 
 export function saveAdminConfig(config) {
@@ -68,5 +80,7 @@ export function saveAdminConfig(config) {
 }
 
 export function fetchLeads() {
-  return request("/admin/leads", { headers: authHeaders() });
+  return request("/admin/leads", {
+    headers: authHeaders(),
+  });
 }
