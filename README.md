@@ -91,23 +91,6 @@ Copy-Item server/.env.example server/.env
 Copy-Item client/.env.example client/.env
 ```
 
-### Server: `server/.env`
-
-| Variable | Purpose | Example |
-|---|---|---|
-| `MONGODB_URI` | MongoDB connection string | `mongodb://127.0.0.1:27017/wantace_roofing` |
-| `PORT` | API port | `4000` |
-| `CLIENT_ORIGIN` | Allowed frontend origin | `http://localhost:5173` |
-| `ADMIN_USERNAME` | Owner username | `admin` |
-| `ADMIN_PASSWORD` | Owner password | `roofing2026!` |
-| `JWT_SECRET` | Token signing secret | Use a long random value |
-| `JWT_EXPIRES_IN` | JWT lifetime | `8h` |
-
-### Client: `client/.env`
-
-| Variable | Purpose | Example |
-|---|---|---|
-| `VITE_API_BASE_URL` | Backend API base URL | `http://localhost:4000/api` |
 
 ## Database Setup and Seeding
 
@@ -131,10 +114,10 @@ npm run dev:server
 npm run dev:client
 ```
 
-| Surface | Local URL |
+| Surface | URL |
 |---|---|
-| Public estimator | `http://localhost:5173/` |
-| Owner login | `http://localhost:5173/admin/login` |
+| Public estimator | `https://config-driven-estimator-owner-panel.vercel.app` |
+| Owner login | `https://config-driven-estimator-owner-panel.vercel.app/admin/login` |
 
 ## Owner Test Credentials
 
@@ -145,7 +128,6 @@ Username: admin
 Password: roofing2026!
 ```
 
-Change these values and set a strong `JWT_SECRET` before deploying.
 
 ## API Reference
 
@@ -202,10 +184,7 @@ The frontend bundle is created in `client/dist/`.
 
 Replace these placeholders before submission:
 
-| Surface | URL |
-|---|---|
-| Public estimator | `https://<your-frontend-url>/` |
-| Owner login | `https://<your-frontend-url>/admin/login` |
+
 
 ## Additional Documentation
 
